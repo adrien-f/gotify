@@ -23,7 +23,7 @@ func configWizard() *Configuration {
 
 func LoadConfig() *Configuration {
 	if _, err := os.Stat("config.json"); os.IsNotExist(err) {
-		configuration := ConfigWizard()
+		configuration := configWizard()
 		return configuration
 	}
 	file, err := ioutil.ReadFile("config.json")
