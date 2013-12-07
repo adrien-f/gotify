@@ -19,7 +19,6 @@ func ConfigWizard() *Configuration {
 	fmt.Println("Welcome to gotify !\nThis wizard will help you set up gotify, follow it carefully !")
 	StartWizard(configuration)
 	return configuration
-
 }
 
 func LoadConfig() *Configuration {
