@@ -1,6 +1,8 @@
+// This is gotify, a lightweight Spotify player written in Go
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/adrien-f/gotify/config"
 	sp "github.com/op/go-libspotify"
@@ -18,9 +20,11 @@ func Ascii() {
 
 var (
 	configuration *config.Configuration
+	debug         = flag.Bool("debug", false, "debug output")
 )
 
 func main() {
+	flag.Parse()
 	Ascii()
 	configuration = config.LoadConfig()
 }
