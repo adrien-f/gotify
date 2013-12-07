@@ -14,7 +14,7 @@ type Configuration struct {
 	RememberMe bool `json:"remember_me"`
 }
 
-func ConfigWizard() *Configuration {
+func configWizard() *Configuration {
 	configuration := new(Configuration)
 	fmt.Println("Welcome to gotify !\nThis wizard will help you set up gotify, follow it carefully !")
 	StartWizard(configuration)

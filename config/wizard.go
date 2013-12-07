@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func GetUsername(configuration *Configuration) {
+func getUsername(configuration *Configuration) {
 	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Spotify Username: ")
@@ -25,7 +25,7 @@ func GetUsername(configuration *Configuration) {
 	}
 }
 
-func GetPassword(configuration *Configuration) {
+func getPassword(configuration *Configuration) {
 	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Spotify Password (will not be stored): ")
@@ -43,7 +43,7 @@ func GetPassword(configuration *Configuration) {
 }
 
 func StartWizard(configuration *Configuration) *Configuration {
-	GetUsername(configuration)
-	GetPassword(configuration)
+	getUsername(configuration)
+	getPassword(configuration)
 	return configuration
 }
