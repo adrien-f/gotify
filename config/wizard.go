@@ -9,8 +9,7 @@ import (
 )
 
 func GetUsername(configuration *Configuration) {
-	gotUsername := false
-	for gotUsername == false {
+	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Spotify Username: ")
 		username, err := reader.ReadString('\n')
@@ -19,13 +18,32 @@ func GetUsername(configuration *Configuration) {
 		}
 		if len(username)-1 > 0 {
 			configuration.Username = strings.TrimSpace(username)
-			gotUsername = true
+			return
+		} else {
+			fmt.Println("Empty username, please try again")
 		}
 	}
+}
 
+func GetPassword(configuration *Configuration) {
+	for {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Spotify Password (will not be stored): ")
+		password, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		if len(password)-1 > 0 {
+			configuration.Password = strings.TrimSpace(password)
+			return
+		} else {
+			fmt.Println("Empty password, please try again")
+		}
+	}
 }
 
 func StartWizard(configuration *Configuration) *Configuration {
 	GetUsername(configuration)
+	GetPassword(configuration)
 	return configuration
 }

@@ -10,7 +10,8 @@ import (
 
 type Configuration struct {
 	Username   string `json:"username"`
-	RememberMe bool   `json:"remember_me"`
+	Password   string
+	RememberMe bool `json:"remember_me"`
 }
 
 func ConfigWizard() *Configuration {
