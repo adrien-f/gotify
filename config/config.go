@@ -3,6 +3,7 @@ package config
 import (
 	"encoding/json"
 	"fmt"
+	sp "github.com/op/go-libspotify"
 	"io/ioutil"
 	"log"
 	"os"
@@ -13,6 +14,8 @@ type Configuration struct {
 	Password   string
 	RememberMe bool `json:"remember_me"`
 }
+
+type Command func(*sp.Session, []string, <-chan bool) error
 
 // Starts the wizard config
 func configWizard() *Configuration {
